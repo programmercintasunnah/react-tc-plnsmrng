@@ -1,8 +1,6 @@
 import React from "react";
 
 const BobotTree = ({ bobots }) => {
-  console.log(bobots);
-
   // Fungsi untuk merender pohon
   const renderTree = (nodes, parentId = null, depth = 0) => {
     // Cek untuk menghentikan rekursi jika depth terlalu dalam

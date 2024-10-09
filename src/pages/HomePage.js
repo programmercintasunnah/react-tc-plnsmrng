@@ -16,11 +16,11 @@ const HomePage = () => {
   };
 
   const handleCreateBobot = async (newBobot) => {
-    const success = await createBobot(newBobot);
+    const { success, message } = await createBobot(newBobot);
     if (success) {
       loadBobots();
     } else {
-      alert("Gagal menambahkan bobot");
+      alert(message || "Gagal menambahkan bobot");
     }
   };
 
