@@ -2,12 +2,12 @@ import React from "react";
 
 const MainLayout = ({ children }) => {
   return (
-    <div>
-      <header>
-        <h1>Aplikasi Bobot</h1>
+    <div className="min-h-screen flex flex-col">
+      <header className="bg-blue-600 text-white p-4">
+        <h1 className="text-2xl font-bold">Aplikasi Bobot</h1>
       </header>
-      <main>{children}</main>
-      <footer>© 2024</footer>
+      <main className="flex-grow p-4">{children}</main>
+      <footer className="bg-gray-200 text-center p-3">© 2024</footer>
     </div>
   );
 };

@@ -1,28 +1,23 @@
 import React from "react";
 
 const BobotTree = ({ bobots }) => {
-  // Fungsi untuk merender pohon
   const renderTree = (nodes, parentId = null, depth = 0) => {
-    // Cek untuk menghentikan rekursi jika depth terlalu dalam
     if (depth > 100) {
       console.error("Too much recursion");
       return null;
     }
 
-    // Filter node yang memiliki parent_id sesuai
     const filteredNodes = nodes.filter((node) => node.parent_id === parentId);
 
-    // Jika tidak ada node yang cocok, kembalikan null
     if (filteredNodes.length === 0) {
       return null;
     }
 
     return (
-      <ul>
+      <ul className="list-disc pl-5">
         {filteredNodes.map((node) => (
-          <li key={node.id}>
+          <li key={node.id} className="my-1">
             {node.nomor} - {node.nama}
-            {/* Rekursi untuk node anak, tambahkan 'depth' untuk mencegah rekursi tidak terbatas */}
             {renderTree(nodes, node.id, depth + 1)}
           </li>
         ))}
@@ -31,8 +26,8 @@ const BobotTree = ({ bobots }) => {
   };
 
   return (
-    <div>
-      <h3>Data Bobot</h3>
+    <div className="mt-4">
+      <h3 className="text-lg font-semibold">Data Bobot</h3>
       {renderTree(bobots)}
     </div>
   );
